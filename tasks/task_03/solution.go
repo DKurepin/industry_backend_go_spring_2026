@@ -1,5 +1,22 @@
 package main
 
+import (
+	"errors"
+	"fmt"
+)
+
 func fizzBuzz(n int) (string, error) {
-	// TODO
+	if n < 1 {
+		return "", errors.New("number must be positive")
+	}
+	if n%3 == 0 && n%5 == 0 {
+		return "FizzBuzz", nil
+	}
+	if n%3 == 0 {
+		return "Fizz", nil
+	}
+	if n%5 == 0 {
+		return "Buzz", nil
+	}
+	return fmt.Sprintf("%d", n), nil
 }
